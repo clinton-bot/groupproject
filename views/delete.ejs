@@ -1,0 +1,14 @@
+<html>
+    <body>
+        <div>
+        <form action="/delete" method="POST" enctype="multipart/form-data">
+            <input type='hidden' name='id' value="<%= _id%>">
+            <br> Owner: <%=owner_name%> 
+            <br> <br><input type = "submit" value = "delete">
+        </form>
+        <form action="/home" method="GET" enctype="multipart/form-data">
+            <input type = "submit" value = "back">
+        </form>
+    </div>
+    </body>
+</html>

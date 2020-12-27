@@ -1,0 +1,28 @@
+<html>
+    <body>
+        <title>Update</title>
+        <div>
+        <form action="/update" method="POST" enctype="multipart/form-data">
+            <input type='hidden' name='id' value="<%= _id%>">
+            <br> Restaurant Name:<input type='text' name='name' id='name'>
+            <br> Borough:<input type='text' name='borough' id='brough'>
+            <br> Cuisine:<input type='text' name='cuisine' id='cuisine'>
+            <br> Street:<input type='text' name='street' id='street'>
+            <br> Building:<input type='text' name='building' id='building'>
+            <br> Zipcode:<input type='text' name='zipcode'>
+            <br> GPS Coordinates (lon):<input type='text' name='lon'>
+            <br> GPS Coordinates (lat):<input type='text' name='lat'>
+            <br> Owner: <%=owner_name%> 
+            
+            <br> <br><input type = "submit" value = "update">
+        </form>
+        <button onclick="goBack()">Cancel</button>
+        
+        <script>
+            function goBack() {
+              window.history.back();
+            }
+        </script>
+    </div>
+    </body>
+</html>

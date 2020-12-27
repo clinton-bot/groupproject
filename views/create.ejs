@@ -1,0 +1,23 @@
+<html>
+    <body>
+        <title>Create Restaurant</title>
+        <div>
+        <form action="/createDoc" method="GET" enctype="multipart/form-data">
+            <br> Restaurant Name:<input type='text' name='name'>
+            <br> Borough:<input type='text' name='borough'>
+            <br> Cuisine:<input type='text' name='cuisine'>
+            <br> Street:<input type='text' name='street'>
+            <br> Building:<input type='text' name='building'>
+            <br> Zipcode:<input type='text' name='zipcode'>
+            <br> GPS Coordinates (lon):<input type='text' name='lon'>
+            <br> GPS Coordinates (lat):<input type='text' name='lat'>
+            <br> Owner: <%=owner_name%> 
+            <!--<br> <br><input type="file" name="filetoupload">-->
+            <br> <br><input type = "submit" value = "create">
+        </form>
+        <form action="/home" method="GET" enctype="multipart/form-data">
+            <input type = "submit" value = "back">
+        </form>
+    </div>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+<html>
+    <body>
+        <title>Home Page</title>
+        <h1>LOGIN SUCESSFUL!!<%=ejsUser%></h1>
+        <H2>Restaurant</H2><hr>
+
+        <form action = '/createDoc' method="GET">
+        <input type = "submit" value = "create">
+        </form>
+
+        <ul>
+            <% for (var r of docs) { %>
+            <li><a href="/show?_id=<%=r._id %>"><%= r.name%></a></li>
+            <% } %>
+
+        </ul>
+
+        <form action = "/logout" method="GET">
+            <input type = "submit" value = "logout">
+        </form>
+        
+    </body>
+</html>

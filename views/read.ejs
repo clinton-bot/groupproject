@@ -1,0 +1,56 @@
+<html>
+    <body>
+        <title>Restaurant Details</title>
+        <ul>
+            <% for (var r of docs) { %>
+                <h1>Restaurant Name: <%= r.name %></h1>
+                <p><%= r.mimetype%> <%=r.photo %></p>
+                <p>Borough: <%= r.borough %></p>
+                <p>Cuisine: <%= r.cuisine %></p>
+                <p>Street: <%= r.street %></p>
+                <p>Building: <%= r.building %></p>
+                <p>Zipcode: <%= r.Zipcode %></p>
+                <p>GPS: [<%= r.lon %> , <%= r.lat %>] </p>  
+                <p>AvgRate: <%= rating %></p>
+                <p>Rating</p>
+                <ol>
+                    <% for (var i =0; i <= r.rating.length-1;  i++ ) { %>
+                    <li><%= r.rating[i]%> (<%= r.rated[i] %>)</li>
+                    <%#  will output the numbers 1-10 %>
+                    <% } %>
+                </ol>
+
+                <p>Owner: <%= r.owner %> </p>   
+
+            <% }%>            
+        </ul>
+
+
+
+        <p><a href="/map">Map</a></p>
+
+            <% if (r.owner==userName){    %>
+                <form action = 'update' method="GET"> 
+                    <input type="hidden" value ="<%= r.owner %>" name="owner_name">
+                    
+                    <input type="hidden" value ="<%= r._id %>" name="_id">
+                    <input type = "submit" value = "Update">
+                 </form>
+
+                <form action = 'delete' method="GET"> 
+                    <input type="hidden" value ="<%= r.owner %>" name="owner_name">
+                    
+                    <input type="hidden" value ="<%= r._id %>" name="_id">
+                    <input type = "submit" value = "Delete">
+                 </form>
+            <% }  %>
+
+            <form action = '/rating' method="GET" enctype="multipart/form-data"> 
+                <input type="submit" value="Rate">
+             </form>
+
+            <form action="/home" method="GET" enctype="multipart/form-data">
+                <input type = "submit" value = "Back">
+            </form> 
+    </body>
+</html>
