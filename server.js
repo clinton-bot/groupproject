@@ -135,7 +135,7 @@ const refreshedRate = () => {
         var DOCID = {};
         DOCID['_id'] = ObjectID(currentDoc);
 
-        let cursor = db.collection('Restaurant').find(DOCID);        
+        var cursor = db.collection('Restaurant').find(DOCID);        
         cursor.toArray((err,docs) => {
             console.log('refreshed')
             var sum = 0;
@@ -158,7 +158,7 @@ const checkRating = (db, criteria, callback) => {
     DOCID['_id'] = ObjectID(currentDoc);
     var updateDoc = {};
     updateDoc['rated'] = Owner;
-    let cursor = db.collection('Restaurant').find(DOCID);
+    var cursor = db.collection('Restaurant').find(DOCID);
     cursor.toArray((err,docs) => {
         for(var r of docs){
             for(var i = 0; i < r.rated.length;i++){
@@ -182,7 +182,7 @@ const updateRating = (db, criteria, callback) => {
     var updateDoc = {};
     updateDoc['rating'] = criteria.rating;
     updateDoc['rated'] = Owner;
-    let cursor = db.collection('Restaurant').find(DOCID);
+    var cursor = db.collection('Restaurant').find(DOCID);
     cursor.toArray((err,docs) => {
         for(var r of docs){
             
@@ -535,7 +535,7 @@ app.use(express.static('public'));
 app.post('/create', function(req, res){
     if(req.body.password == req.body.password2){
     mongoose.connect(mongourl, { useNewUrlParser: true });
-    let db = mongoose.connection;
+    var db = mongoose.connection;
         db.on('error', console.error.bind(console, 'connection error:')); 
         db.once('open', function (callback) {
             var userNew = mongoose.model('user', userSchema);
@@ -648,17 +648,17 @@ app.get('/map', (req,res) => {
 //api
 app.get('/api/Restaurant/:type/:name', (req,res) => {
     if (req.params.type == 'name'  && req.params.name != {}) {
-        let criteria = {};
+        var criteria = {};
         criteria['name'] = req.params.name;
         handle_find(res, criteria);
 
     } else if (req.params.type == 'borough' && req.params.name != {}){
-        let criteria = {};
+        var criteria = {};
         criteria['borough'] = req.params.name;
         const client = new MongoClient(mongourl);
         handle_find(res, criteria);
     } else if (req.params.type == 'cuisine' && req.params.name != {}){
-        let criteria = {};
+        var criteria = {};
         criteria['cuisine'] = req.params.name;
         const client = new MongoClient(mongourl);
         handle_find(res, criteria);
