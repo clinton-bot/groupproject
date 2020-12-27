@@ -35,7 +35,6 @@ app.use(loginSession({
 }));
 
 var userSchema = require('./models/user');
-const { render } = require('ejs');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
