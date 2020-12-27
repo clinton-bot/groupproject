@@ -66,7 +66,7 @@ const createRestaurant = (db, criteria, res, callback) => {
 
 const findRestaurants = (db, criteria, callback) => { 
 
-    let cursor = db.collection('Restaurant').find(criteria);
+    var cursor = db.collection('Restaurant').find(criteria);
 
     cursor.toArray((err,docs) => {
         
