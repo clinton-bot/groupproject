@@ -12,7 +12,7 @@ const http = require('http');
 const url = require('url');
 
 const mongoose = require('mongoose');
-const mongourl = '';
+const mongourl = 'mongodb://rt:SM638tsf@cluster0-shard-00-00.chcj1.mongodb.net:27017,cluster0-shard-00-01.chcj1.mongodb.net:27017,cluster0-shard-00-02.chcj1.mongodb.net:27017/test?ssl=true&replicaSet=atlas-cac2dx-shard-0&authSource=admin&retryWrites=true&w=majority';
 const dbName = 'test';
 
 // const formidable = require('express-formidable');
